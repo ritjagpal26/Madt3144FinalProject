@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, intial-scale=1.0">
+    <link rel="stylesheet" href="HomeStyle.css">
+    <link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.0/css/mdb.min.css" rel="stylesheet">
+
+    <title></title>
+  </head>
+  <body>
+    <div class="header">
+    <a href="#default" class="logo">Jagpal Travel Agency</a>
+    <div class="header-right">
+      <a  href="index.html">Home</a>
+      <a href="contact-us.html">My List</a>
+      <a href="Services.html">Services</a>
+      <a href="contact-us.html">Contact</a>
+      <a href="About-us.html">About</a>
+      <a class="active" href="login-signup.html">Login</a>
+
+    </div>
+  </div>
+  <!-- hwjfqwhejhqkhed -->
+
+
+  <div class="container-fluid pt-4">
+  		<div class="container">
+  			<h2 class="text-center" id="title">Jagpal Travel agency</h2>
+
+   			<hr>
+  			<div class="row">
+  				<div class="col-md-5">
+   					<form role="form" method="post" action="register.php">
+  						<fieldset>
+  							<p class="text-uppercase pull-center"> SIGN UP.</p>
+                <div class="form-group">
+  								<input type="text" name="fname" id="fname" class="form-control input-lg" placeholder="First Name">
+  							</div>
+                <div class="form-group">
+  								<input type="text" name="lname" id="lanme" class="form-control input-lg" placeholder="Last Name">
+  							</div>
+   							<div class="form-group">
+  								<input type="text" name="username" id="username" class="form-control input-lg" placeholder="username">
+  							</div>
+
+  							<div class="form-group">
+  								<input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address">
+  							</div>
+  							<div class="form-group">
+  								<input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password">
+  							</div>
+  								<div class="form-group">
+  								<input type="password" name="password2" id="password2" class="form-control input-lg" placeholder="Password2">
+  							</div>
+  							<div class="form-check">
+  								<label class="form-check-label">
+  								  <input type="checkbox" class="form-check-input">
+  								  By Clicking register you're agree to our policy & terms
+  								</label>
+  							  </div>
+   							<div class="pb-4">
+
+
+   									  <!-- <input type="submit" class="btn btn-lg btn-primary" onClick="store()">
+   							</div> -->
+  						</fieldset>
+  					</form>
+            <button id="button1" onclick="store()" style="background-color: black;"><font size="3" bgcolor="black" color="white">Submit</font></button>
+  				</div>
+
+  				<div class="col-md-2">
+
+  					<!-------null------>
+  				</div>
+
+  				<div class="col-md-5">
+   				 		<form role="form">
+  						<fieldset>
+  							<p class="text-uppercase"> Login using your account: </p>
+
+  							<div class="form-group">
+  								<input type="email" name="username" id="username-login" class="form-control input-lg" placeholder="username">
+  							</div>
+  							<div class="form-group">
+  								<input type="password" name="password" id="password-login" class="form-control input-lg" placeholder="Password">
+  							</div>
+  							<div>
+  								<input type="submit" class="btn btn-md" value="Sign In"  onClick="login">
+  							</div>
+
+   						</fieldset>
+  				</form>
+  				</div>
+  			</div>
+  		</div>
+
+  	</div>
+
+
+
+
+
+
+
+  <!-- Footer -->
+  <footer class="page-footer font-small cyan darken-3">
+
+    <!-- Footer Elements -->
+    <div class="container">
+
+  <!-- Grid row-->
+  <div class="row">
+
+    <!-- Grid column -->
+    <div class="col-md-12 py-5">
+      <div class="mb-5 flex-center">
+
+
+        <a class="fb-ic">
+          <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+        </a>
+
+        <a class="tw-ic">
+          <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+        </a>
+
+        <a class="gplus-ic">
+          <i class="fab fa-google-plus-g fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+        </a>
+
+        <a class="li-ic">
+          <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+        </a>
+
+        <a class="ins-ic">
+          <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+        </a>
+
+        <a class="pin-ic">
+          <i class="fab fa-pinterest fa-lg white-text fa-2x"> </i>
+        </a>
+      </div>
+    </div>
+
+
+  </div>
+    </div>
+
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+      <a href="https://mdbootstrap.com/"> travelSite.com</a>
+    </div>
+
+  </footer>
+
+  </body>
+</html>
+<script type="text/javascript">
+
+    // Name and Password from the register-form
+    var fname = [];
+    var lname = [];
+    var email = [];
+    var username =[];
+    var password = [];
+    var password2 = [];
+
+    var i=0;
+    fname[i] = document.getElementById('fname');
+    lname[i] = document.getElementById('lanme');
+    password[i] = document.getElementById('passowrd');
+    password2[i] = document.getElementById('passowrd2');
+
+    username[i] = document.getElementById('username');
+
+    email[i] = document.getElementById('email');
+
+
+    // storing input from register-form
+    function store() {
+        localStorage.setItem('fname', JSON.stringify(fname));
+        localStorage.setItem('password', JSON.stringify(password));
+        localStorage.setItem('lname', JSON.stringify(lname));
+        localStorage.setItem('email', JSON.stringify(email));
+        localStorage.setItem('username', JSON.stringify(username));
+        i++;
+    }
+    function logim(){
+      for(i=0;i<username.length;i++){
+        var storedName = [];
+        var storedPw = [];
+        storedName[i]=localStorage.getItem('username[i]');
+        storedPw[i]=localStorage.getItem('password[i]');
+        if(username-login.value == storedName[i] && passowrd-login.value == storedPw[i]) {
+            alert('You are loged in.');
+        }else {
+            alert('ERROR.');
+        }
+    }
+    }
+</script>
