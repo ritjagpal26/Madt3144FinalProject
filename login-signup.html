@@ -18,7 +18,7 @@
     <a href="#default" class="logo">Jagpal Travel Agency</a>
     <div class="header-right">
       <a  href="index.html">Home</a>
-      <a href="contact-us.html">My List</a>
+      <a href="mylist.html">My List</a>
       <a href="Services.html">Services</a>
       <a href="contact-us.html">Contact</a>
       <a href="About-us.html">About</a>
@@ -36,7 +36,7 @@
    			<hr>
   			<div class="row">
   				<div class="col-md-5">
-   					<form role="form" method="post" action="register.php">
+   					<form role="form" method="post" >
   						<fieldset>
   							<p class="text-uppercase pull-center"> SIGN UP.</p>
                 <div class="form-group">
@@ -65,13 +65,13 @@
   								</label>
   							  </div>
    							<div class="pb-4">
-
+<input type="submit" class="btn btn-md " value="Sign up"  onClick="store()">
 
    									  <!-- <input type="submit" class="btn btn-lg btn-primary" onClick="store()">
    							</div> -->
   						</fieldset>
   					</form>
-            <button id="button1" onclick="store()" style="background-color: black;"><font size="3" bgcolor="black" color="white">Submit</font></button>
+
   				</div>
 
   				<div class="col-md-2">
@@ -91,7 +91,7 @@
   								<input type="password" name="password" id="password-login" class="form-control input-lg" placeholder="Password">
   							</div>
   							<div>
-  								<input type="submit" class="btn btn-md" value="Sign In"  onClick="login">
+  								<input type="submit" class="btn btn-md" value="Sign In"  onClick="login()">
   							</div>
 
    						</fieldset>
@@ -153,7 +153,7 @@
     </div>
 
     <div class="footer-copyright text-center py-3">© 2020 Copyright:
-      <a href="https://mdbootstrap.com/"> travelSite.com</a>
+      <a href="index.html"> jagpaltravels.com</a>
     </div>
 
   </footer>
@@ -190,7 +190,7 @@
         localStorage.setItem('username', JSON.stringify(username));
         i++;
     }
-    function logim(){
+    function login(){
       for(i=0;i<username.length;i++){
         var storedName = [];
         var storedPw = [];
