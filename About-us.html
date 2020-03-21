@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.0/css/mdb.min.css" rel="stylesheet">
-
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
@@ -30,8 +30,9 @@
       <a href="mylist.html">My List</a>
       <a href="Services.html">Services</a>
       <a href="contact-us.html">Contact</a>
-      <a class="active" href="About-us.html">About</a>
-      <a  href="login-signup.html">Login</a>
+        <a href="About-us.html">About</a>
+        <a href="login-signup.html" id="login_b">Login</a>
+        <a href="login-signup.html" id="logout_b" onclick="performLogout()">Logout</a>
 
     </div>
   </div>
@@ -142,3 +143,15 @@ With access to exclusive deals and countless databases, we ensure that you’re 
 
   </body>
 </html>
+<script type="text/javascript">
+function performLogout() {
+  localStorage.removeItem("currentuser");
+  window.href = "login-signup.html";
+}
+
+</script>
+<script type="text/javascript" src="script.js">
+
+</script>
+
+</script>
