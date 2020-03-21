@@ -275,6 +275,8 @@ let validFlights = [];
            {
 
              var validFlight = new FlightDetails(cursor.value.flyingFrom, cursor.value.flyingTo, cursor.value.flightname,cursor.value.fare,cursor.value.departuretime,cursor.value.arrivaltime);
+             validFlight.id = cursor.key;
+
              validFlights.push(validFlight);
            }
 
@@ -292,3 +294,72 @@ let validFlights = [];
 
   });
 }
+function getFlightDetails(id) {
+  return new Promise((resolve,reject)=> {
+  const tx = db.transaction("flights","readonly")
+  const flights = tx.objectStore("flights")
+  const request =flights.openCursor();
+  request.onsuccess = function(e) {
+
+       const cursor = e.target.result;
+
+
+        if(cursor) {
+
+          if(cursor.key == id)
+          {
+
+            resolve(cursor.value);
+          }
+          else {
+              cursor.continue();
+          }
+
+       }
+
+
+   }
+   });
+}
+
+function addFlightRequestToDB(flightRequest) {
+  const tx = db.transaction("bookedflights", "readwrite")
+  tx.onerror = e => alert( ` Error! ${e.target.error}  `)
+  const flights = tx.objectStore("bookedflights");
+
+
+  flights.add(flightRequest);
+
+}
+
+function getFlightRequests(userId) {
+    return new Promise((resolve,reject)=> {
+      const tx = db.transaction("bookedflights","readonly")
+      const hotels = tx.objectStore("bookedflights")
+      const request =hotels.openCursor();
+      var hotelRequests = [];
+     request.onsuccess = function(e) {
+
+          const cursor = e.target.result
+
+           if(cursor) {
+
+             if(cursor.value.userID == userId)
+             {
+               var hotel = cursor.value;
+               hotelRequests.push(hotel);
+             }
+             cursor.continue();
+
+
+
+
+          }
+          else {
+            resolve(hotelRequests);
+          }
+
+      }
+
+    });
+  }

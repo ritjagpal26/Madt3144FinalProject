@@ -19,15 +19,15 @@ class  User {
   }
 }
 class FlightBooking{
-  constructor(type,flyingFrom, flyingTo, departing, returning,adults, children, travelClass){
+  constructor(type,flightId,departing, returning,adults, children, travelClass,userId){
     this.type = type;
-    this.flyingFrom = flyingFrom;
-    this.flyingTo = flyingTo;
+    this.flight = flightId;
     this.departing = departing;
     this.returning = returning;
     this.adults = adults;
     this.children = children;
     this.travelClass = travelClass;
+    this.userID = userId;
   }
 }
 

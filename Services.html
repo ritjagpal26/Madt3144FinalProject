@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta name="viewport" content="width=device-width, intial-scale=1.0">
+  <meta name="viewport" content="width=device-width, intial-scale=1.0">
     <link rel="stylesheet" href="HomeStyle.css">
     <link rel="stylesheet"
     href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -55,12 +55,26 @@ function bindFlightOptionsToTable(flightRequest) {
     let row = flightTable.insertRow(index);
 
 
-    row.innerHTML = `<td>${index}</td><td>${flightRequest.flightname}</td><td>${flightRequest.flyingFrom}</td><td>${flightRequest.flyingTo}</td><td>${flightRequest.fare}</td><td>${flightRequest.departuretime}</td><td>${flightRequest.arrivaltime}</td>`;
+    row.innerHTML = `<td>${index}</td><td>${flightRequest.flightname}</td><td>${flightRequest.flyingFrom}</td><td>${flightRequest.flyingTo}</td><td>${flightRequest.fare}</td><td>${flightRequest.departuretime}</td><td>${flightRequest.arrivaltime}</td><td><input type=button class="btn btn-primary" onclick="addFlightRequest(this.id)" value=select id=${flightRequest.id} /></td>`;
 
 
 
   });
 
+}
+
+function addFlightRequest(id) {
+  let Departing = document.getElementById('Departing').value;
+  let returning = document.getElementById('returning').value;
+  let flightadults = document.getElementById('flightadults').value;
+  let childflight = document.getElementById('childflight').value;
+  let travelclass = document.getElementById('travelclass').value;
+  let type = document.getElementById('roundtrip').checked ? "roundtrip":"one-way";
+  var flightRequest = new FlightBooking(type,id,Departing,returning,flightadults, childflight,travelclass,localStorage.getItem("currentuser"));
+  addFlightRequestToDB(flightRequest);
+          alert("Flight Requested");
+          document.getElementById(id).value = "Booked";
+          document.getElementById(id).enabled = false;
 
 
 
@@ -351,7 +365,7 @@ function bindFlightOptionsToTable(flightRequest) {
 
 
       <div id="booking" class="section">
-<div class="section-center">
+
 <div class="container">
   <h2 class="flight" align="center">Book Your flights</h2>
 <div class="row justify-content-center">
@@ -360,17 +374,14 @@ function bindFlightOptionsToTable(flightRequest) {
 <div class="form-group">
 <div class="form-checkbox">
 <label for="roundtrip">
-<input type="radio" id="roundtrip" name="flight-type">
+<input type="radio" id="roundtrip" name="flight-type" checked>
 <span></span>Roundtrip
 </label>
 <label for="one-way">
 <input type="radio" id="one-way" name="flight-type">
 <span></span>One way
 </label>
-<label for="multi-city">
-<input type="radio" id="multi-city" name="flight-type">
-<span></span>Multi-City
-</label>
+
 </div>
 </div>
 <div class="row">
@@ -391,20 +402,20 @@ function bindFlightOptionsToTable(flightRequest) {
 <div class="col-md-3">
 <div class="form-group">
 <span class="form-label">Departing</span>
-<input class="form-control" type="date" required="">
+<input class="form-control" id="Departing"type="date" required="">
 </div>
 </div>
 <div class="col-md-3">
 <div class="form-group">
 <span class="form-label">Returning</span>
-<input class="form-control" type="date" required="">
+<input class="form-control" id="returning" type="date" required="">
 </div>
 </div>
 <div class="col-md-2">
 <div class="form-group">
 <span class="form-label">Adults (18+)</span>
-<select class="form-control">
-<option>1</option>
+<select class="form-control" id="flightadults">
+<optionf>1</option>
 <option>2</option>
 <option>3</option>
 </select>
@@ -414,7 +425,7 @@ function bindFlightOptionsToTable(flightRequest) {
 <div class="col-md-2">
 <div class="form-group">
 <span class="form-label">Children (0-17)</span>
-<select class="form-control">
+<select class="form-control" id="childflight">
 <option>0</option>
 <option>1</option>
 <option>2</option>
@@ -427,7 +438,7 @@ function bindFlightOptionsToTable(flightRequest) {
 <div class="col-md-3">
 <div class="form-group">
 <span class="form-label">Travel class</span>
-<select class="form-control">
+<select id="travelclass" class="form-control">
 <option>Economy class</option>
 <option>Business class</option>
 <option>First class</option>
@@ -437,7 +448,7 @@ function bindFlightOptionsToTable(flightRequest) {
 </div>
 <div class="col-md-3">
 <div class="form-btn">
-<button class="submit-btn" onclick="getFlights()">Show flights</button>
+<input  type="button" class="btn btn-info" onclick="getFlights()" value="Show Flights" />
 </div>
 </div>
 </div>
@@ -448,7 +459,7 @@ function bindFlightOptionsToTable(flightRequest) {
   <div class="col-sm-12">
 
 
-   <table class="ftable table-striped table-dark" id="flightRequest" >
+   <table class="table table-responsive table-striped table-dark" id="flightRequest" >
      <tr>
        <th class="m-1 p-2"> Request Id</th>
        <th class="m-1 p-2">Flight Name</th>
@@ -469,7 +480,7 @@ function bindFlightOptionsToTable(flightRequest) {
      </div>
 </div>
 </div>
-</div>
+
 </div>
 </div>
   <!-- Footer -->
