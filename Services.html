@@ -36,6 +36,36 @@
     }
 
 
+function getFlights(){
+  let flyingto = document.getElementById('flyingto').value;
+  let flyingFrom = document.getElementById('flyingfrom').value;
+
+  showFlihts(flyingFrom,flyingto).then((response)=>{
+      console.log(response);
+bindFlightOptionsToTable(response);
+  });
+
+
+}
+function bindFlightOptionsToTable(flightRequest) {
+  console.log(flightRequest);
+  var flightTable = document.getElementById("flightRequest");
+  flightRequest.forEach((flightRequest, i) => {
+    let index = i+1;
+    let row = flightTable.insertRow(index);
+
+
+    row.innerHTML = `<td>${index}</td><td>${flightRequest.flightname}</td><td>${flightRequest.flyingFrom}</td><td>${flightRequest.flyingTo}</td><td>${flightRequest.fare}</td><td>${flightRequest.departuretime}</td><td>${flightRequest.arrivaltime}</td>`;
+
+
+
+  });
+
+
+
+
+
+}
 
     </script>
 
@@ -323,7 +353,7 @@
       <div id="booking" class="section">
 <div class="section-center">
 <div class="container">
-  <h2 class="hotel" align="center">Book Your flights</h2>
+  <h2 class="flight" align="center">Book Your flights</h2>
 <div class="row justify-content-center">
 <div class="booking-form">
 <form>
@@ -347,13 +377,13 @@
 <div class="col-md-6">
 <div class="form-group">
 <span class="form-label">Flying from</span>
-<input class="form-control" type="text" placeholder="City or airport">
+<input class="form-control" type="text" id="flyingfrom" placeholder="City or airport">
 </div>
 </div>
 <div class="col-md-6">
 <div class="form-group">
 <span class="form-label">Flyning to</span>
-<input class="form-control" type="text" placeholder="City or airport">
+<input class="form-control" id="flyingto" type="text" placeholder="City or airport">
 </div>
 </div>
 </div>
@@ -407,13 +437,38 @@
 </div>
 <div class="col-md-3">
 <div class="form-btn">
-<button class="submit-btn">Show flights</button>
+<button class="submit-btn" onclick="getFlights()">Show flights</button>
 </div>
 </div>
 </div>
 </form>
 </div>
- </div>
+
+<div class="row p-4">
+  <div class="col-sm-12">
+
+
+   <table class="ftable table-striped table-dark" id="flightRequest" >
+     <tr>
+       <th class="m-1 p-2"> Request Id</th>
+       <th class="m-1 p-2">Flight Name</th>
+     <th class="m-1 p-2">From</th>
+     <th class="m-1 p-2">Destination</th>
+     <th class="m-1 p-2">Fare</th>
+     <th class="m-1 p-2">Departur Time</th>
+     <th class="m-1 p-2">Arrival Time</th>
+     <th class="m-1 p-2">Select</th>
+
+
+
+
+     </tr>
+
+   </table>
+   </div>
+     </div>
+</div>
+</div>
 </div>
 </div>
 </div>

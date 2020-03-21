@@ -3,7 +3,7 @@
 
 
     const dbName = "LocalDB";
-    const dbVersion = "2";
+    const dbVersion = "1";
 
     const dbrequest = indexedDB.open(dbName,dbVersion)
 
@@ -17,7 +17,9 @@
             const pNotes = db.createObjectStore("users", {autoIncrement: true});
 
             const photels = db.createObjectStore("hotels", {autoIncrement: true});
-            const lhotels = db.createObjectStore("listOfHotels", {autoIncrement: true});
+            const bookflights = db.createObjectStore("bookedflights", {autoIncrement: true});
+
+            const lhotels = db.createObjectStore("flights", {autoIncrement: true});
 
 
            alert(`upgrade is called database name: ${db.name} version : ${db.version}`)
@@ -26,11 +28,32 @@
         //on success
         dbrequest.onsuccess = e => {
             db = e.target.result
+            fillFlightData();
             // alert(`success is called database name: ${db.name} version : ${db.version}`)
         }
         //on error
         dbrequest.onerror = e => {
             alert(`error: ${e.target.error} was found `)
+
+        }
+        function fillFlightData() {
+          const tx = db.transaction("flights", "readwrite")
+          tx.onerror = e => alert( ` Error! ${e.target.error}  `)
+          const flights = tx.objectStore("flights");
+          var flightsObject = [
+            new FlightDetails("Delhi", "Toronto","Ethiad Airways" ,"$1500","14:00(EST)" ,"16:00(GMT)"),
+            new FlightDetails("Delhi", "Toronto","Air Canada" ,"$1500","22:00(EST)" ,"11:00(GMT)"),
+            new FlightDetails("Singapore", "Delhi","Singapore Airline" ,"$1000","14:00(EMT)" ,"16:00(GMT)"),
+            new FlightDetails("Mexico", "Toronto","Cathay Pecefic " ,"$400","21:00(EST)" ,"19:00(EST)"),
+            new FlightDetails("California", "Toronto","Emirates" ,"$900","13:00(EST)" ,"19:00(EST)"),
+            new FlightDetails("Bengaluru", "Norway","British Airway" ,"$1000","21:00(EST)" ,"23:00(EST)"),
+            new FlightDetails("Vancouver", "London","Virgin Airways" ,"$1200","17:00(EST)" ,"12:00(EST)")
+
+          ];
+          flightsObject.forEach((item, i) => {
+              flights.add(item);
+          });
+
 
         }
 $(document).ready(function() {
@@ -172,6 +195,8 @@ function getUserId(username) {
 
 
 
+
+
  function addNote() {
 
      const note = {
@@ -229,3 +254,41 @@ function getUserId(username) {
 
      });
    }
+
+
+// Flights section
+
+async function showFlihts(flyingFrom,flyingto) {
+  return new Promise((resolve,reject)=> {
+    const tx = db.transaction("flights","readonly")
+    const flights = tx.objectStore("flights")
+    const request =flights.openCursor();
+let validFlights = [];
+   request.onsuccess = function(e) {
+
+        const cursor = e.target.result;
+
+
+         if(cursor) {
+
+           if(cursor.value.flyingFrom == flyingFrom && cursor.value.flyingTo == flyingto)
+           {
+
+             var validFlight = new FlightDetails(cursor.value.flyingFrom, cursor.value.flyingTo, cursor.value.flightname,cursor.value.fare,cursor.value.departuretime,cursor.value.arrivaltime);
+             validFlights.push(validFlight);
+           }
+
+             cursor.continue();
+
+
+
+
+        }
+        else {
+          resolve(validFlights);
+        }
+
+    }
+
+  });
+}

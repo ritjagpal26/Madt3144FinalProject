@@ -228,3 +228,7 @@ Style Attribute {
       position: relative;
       margin-bottom: 30px;
     }
+    .fas {
+      font-size: 50px;
+      color: #003366;
+}

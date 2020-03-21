@@ -19,8 +19,27 @@ class  User {
   }
 }
 class FlightBooking{
-  constructor(flyingFrom, flyingTo, departing, returning,adults , children, travelClass){
+  constructor(type,flyingFrom, flyingTo, departing, returning,adults, children, travelClass){
+    this.type = type;
+    this.flyingFrom = flyingFrom;
+    this.flyingTo = flyingTo;
+    this.departing = departing;
+    this.returning = returning;
+    this.adults = adults;
+    this.children = children;
+    this.travelClass = travelClass;
+  }
+}
 
+class FlightDetails{
+  constructor(flyingFrom, flyingTo, flightname,fare,departuretime,arrivaltime){
+
+    this.flyingFrom = flyingFrom;
+    this.flyingTo = flyingTo;
+    this.fare = fare;
+    this.departuretime = departuretime;
+    this.arrivaltime = arrivaltime;
+    this.flightname=flightname;
 
   }
 }
