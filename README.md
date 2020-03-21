@@ -25,4 +25,5 @@ It will show list of flights  below then from the list user can book the flight 
 
 All The  Screen Shots Of PAges 
 https://www.dropbox.com/sh/h73x40q2iyytinr/AABnv3x3TSADJj3R1N5qC4U7a?dl=0
-[Alt text](https://www.dropbox.com/s/7za1b2z3ild8ski/Adding%20%20Details%20For%20Sign%20Up.png?dl=0 "Optional title")
+
+[Alt text](https://www.dropbox.com/s/7za1b2z3ild8ski/Adding%20%20Details%20For%20Sign%20Up.png?dl=0)
