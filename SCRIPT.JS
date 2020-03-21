@@ -95,6 +95,7 @@ function performLoginCheck() {
   }
 }
 
+
 //user function
 
   function addUserToDB(newuser) {
