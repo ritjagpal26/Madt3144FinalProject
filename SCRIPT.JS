@@ -66,13 +66,20 @@ $(document).ready(function() {
 function init() {
   var navLoginLink = document.getElementById("login_b");
   var navLogoutLink = document.getElementById("logout_b");
+  var navMyListLink = document.getElementById("mylist");
+
+
   if(performLoginCheck()) {
     navLoginLink.style.display = "none";
     navLogoutLink.style.display = "visible";
+    navMyListLink.style.display = "visible";
   }
   else {
     navLoginLink.style.display = "visible";
     navLogoutLink.style.display = "none";
+    navMyListLink.style.display = "none";
+
+
   }
 }
 
