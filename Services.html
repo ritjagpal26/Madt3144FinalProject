@@ -91,11 +91,7 @@ function addFlightRequest(id) {
 
     <title></title>
     <style>
-      .section {
-  position: relative;
-  height: 100vh;
-  align-content: center;
-}
+
 .roberto-about-area{
   background:#efefef;
   margin:30px;
@@ -105,18 +101,7 @@ function addFlightRequest(id) {
   padding: 30px;
 }
 
-.section .section-center {
-  background:#efefef;
-  padding-bottom: 60px;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  /* -webkit-transform: translateY(-50%);
-  transform: translateY(-50%); */
-  align-items: center;
 
-}
 
 #booking {
   font-family: 'PT Sans', sans-serif;
@@ -278,6 +263,12 @@ function addFlightRequest(id) {
 .booking-form .submit-btn:focus {
   opacity: 0.9;
 }
+#footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+}
 
     </style>
   </head>
@@ -296,6 +287,12 @@ function addFlightRequest(id) {
 
     </div>
   </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+
+
+
    <section class="roberto-about-area section-padding-100-0 pb-5">
         <!-- Hotel Search Form Area -->
         <div class="hotel-search-form-area">
@@ -367,13 +364,18 @@ function addFlightRequest(id) {
         </div>
       </section>
 
-
-
-      <div id="booking" class="section">
-
-<div class="container">
-  <h2 class="flight" align="center">Book Your flights</h2>
+  </div>
+</div>
 <div class="row justify-content-center">
+<div class="col-sm-12">
+
+
+
+      <div id="booking" >
+
+
+  <h2 class="flight" align="center">Book Your flights</h2>
+
 <div class="booking-form">
 <form>
 <div class="form-group">
@@ -461,7 +463,7 @@ function addFlightRequest(id) {
 </div>
 
 <div class="row p-4">
-  <div class="col-sm-12">
+  <div class="col-sm-12 ">
 
 
    <table class="table table-responsive table-striped table-dark" id="flightRequest" >
@@ -485,8 +487,13 @@ function addFlightRequest(id) {
      </div>
 </div>
 </div>
-
 </div>
+</div>
+</div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+
 
 
   <!-- Footer -->
@@ -537,6 +544,10 @@ function addFlightRequest(id) {
 <a href="index.html"> jagpaltravels.com</a>    </div>
 
   </footer>
+</div>
+
+</div>
+  </div>
 
 
   </body>

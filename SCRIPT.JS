@@ -14,13 +14,14 @@
                 title: "note1",
                 text: "this is a note"
             }*/
+
             const pNotes = db.createObjectStore("users", {autoIncrement: true});
 
             const photels = db.createObjectStore("hotels", {autoIncrement: true});
             const bookflights = db.createObjectStore("bookedflights", {autoIncrement: true});
 
             const lhotels = db.createObjectStore("flights", {autoIncrement: true});
-
+fillFlightData();
 
            alert(`upgrade is called database name: ${db.name} version : ${db.version}`)
 
@@ -28,7 +29,7 @@
         //on success
         dbrequest.onsuccess = e => {
             db = e.target.result
-            fillFlightData();
+
             // alert(`success is called database name: ${db.name} version : ${db.version}`)
         }
         //on error
