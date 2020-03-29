@@ -21,13 +21,14 @@
             const bookflights = db.createObjectStore("bookedflights", {autoIncrement: true});
 
             const lhotels = db.createObjectStore("flights", {autoIncrement: true});
-fillFlightData();
 
            alert(`upgrade is called database name: ${db.name} version : ${db.version}`)
 
         }
         //on success
         dbrequest.onsuccess = e => {
+          fillFlightData();
+
             db = e.target.result
 
             // alert(`success is called database name: ${db.name} version : ${db.version}`)
