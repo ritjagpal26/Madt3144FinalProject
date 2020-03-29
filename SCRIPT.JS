@@ -1,6 +1,6 @@
 
  let db = null;
-
+var dbinit = false;
 
     const dbName = "LocalDB";
     const dbVersion = "1";
@@ -21,12 +21,13 @@
             const bookflights = db.createObjectStore("bookedflights", {autoIncrement: true});
 
             const lhotels = db.createObjectStore("flights", {autoIncrement: true});
-
+            dbinit = true;
            alert(`upgrade is called database name: ${db.name} version : ${db.version}`)
 
         }
         //on success
         dbrequest.onsuccess = e => {
+          if(dbinit)
           fillFlightData();
 
             db = e.target.result
@@ -40,6 +41,7 @@
         }
         function fillFlightData() {
           const tx = db.transaction("flights", "readwrite")
+          if(tx) {
           tx.onerror = e => alert( ` Error! ${e.target.error}  `)
           const flights = tx.objectStore("flights");
           var flightsObject = [
