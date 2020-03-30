@@ -30,7 +30,7 @@ var dbinit = false;
           if(dbinit)
           fillFlightData();
 
-            db = e.target.result
+            db = e.target.result;
 
             // alert(`success is called database name: ${db.name} version : ${db.version}`)
         }
