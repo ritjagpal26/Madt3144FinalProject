@@ -60,6 +60,7 @@ var dbinit = false;
 
 
         }
+        }
 $(document).ready(function() {
   init();
 
